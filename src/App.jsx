@@ -14,7 +14,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/auth" element={<Auth />} />
-      <Route path="/cleaner-profile" element={<CleanerProfile />} />
+      <Route path="/cleaner-profile/:id" element={<CleanerProfile />} />
       <Route path="/admin" element={<Admin />} />
     </Routes>
   </div>;
