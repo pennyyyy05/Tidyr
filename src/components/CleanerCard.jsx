@@ -10,8 +10,7 @@ export default function CleanerCard({ cleaner }) {
                 <p className="cleaner-card-location">{cleaner.location}</p>
                 <p className="cleaner-card-rating">Rating: {cleaner.rating}</p>
                 <div className="cleaner-card-actions">
-                    <Link to={`/cleaners/${cleaner.name}`}>Book Now</Link>
-                </div>
+                    <Link to={`/cleaner-profile/${cleaner.id}`} className="btn btn-primary">Book Now</Link>                </div>
             </div>
         </div>
     );

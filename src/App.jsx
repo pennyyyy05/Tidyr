@@ -6,18 +6,23 @@ import Admin from "./pages/Admin";
 import Navbar from "./components/Navbar";
 
 import "./App.css";
+import AuthProvider from "./context/AuthContext";
 
 
 function App() {
-  return <div className="app">
-    <Navbar />
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/auth" element={<Auth />} />
-      <Route path="/cleaner-profile/:name" element={<CleanerProfile />} />
-      <Route path="/admin" element={<Admin />} />
-    </Routes>
-  </div>;
+  return (
+    <AuthProvider>
+    <div className="app">
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/auth" element={<Auth />} />
+        <Route path="/cleaner-profile/:name" element={<CleanerProfile />} />
+        <Route path="/admin" element={<Admin />} />
+      </Routes>
+    </div>
+    </AuthProvider>
+  );
 }
 
 export default App;
