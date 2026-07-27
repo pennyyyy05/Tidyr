@@ -1,12 +1,13 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Auth from "./pages/Auth";
-import CleanerProfile from "./pages/CleanerProfile";
 import Admin from "./pages/Admin";
 import Navbar from "./components/Navbar";
 
 import "./App.css";
 import AuthProvider from "./context/AuthContext";
+import CleanerDetails from "./pages/CleanerDetails";
+import ProtectedRoute from "./components/ProtectRoute";
 
 
 function App() {
@@ -17,9 +18,17 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/auth" element={<Auth />} />
-        <Route path="/cleaner-profile/:name" element={<CleanerProfile />} />
-        <Route path="/admin" element={<Admin />} />
-      </Routes>
+        <Route path="/cleaner-profile/:id" element={<CleanerDetails />} 
+        />
+        <Route 
+        path="/admin" 
+        element={
+          <ProtectedRoute>
+            <Admin />
+          </ProtectedRoute>
+        } 
+        />
+        </Routes>
     </div>
     </AuthProvider>
   );

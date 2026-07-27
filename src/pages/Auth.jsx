@@ -1,7 +1,9 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+
+import { Link } from "react-router-dom";
 
 export default function Auth(){
     const [mode, setMode] = useState("signup"); // "login" or "signup"
@@ -18,14 +20,19 @@ export default function Auth(){
     } = useForm();
 
     async function onSubmit(data) {
-        setServerError("");
+    setServerError("");
         try {
             if (mode === "signup") {
                 await signUp(data.email, data.password);
-            } else {
-                await login(data.email, data.password);
-            }
                 navigate("/");
+            } else {
+                const result = await login(data.email, data.password);
+                if (result.isAdmin) {
+                    navigate("/admin");
+                } else {
+                    navigate("/");
+                }
+            }
         } catch (err) {
             setServerError(err.message);
         }
@@ -33,8 +40,10 @@ export default function Auth(){
 
     return (
     <div className="page">
+        <div className="auth-logo">Tidyr</div>
         <div className="container">
             <div className="auth-container">
+                
                 <h1 className="page-title">{mode === "signup" ? "Sign Up" : "Login"}
                 </h1>
 

@@ -36,7 +36,7 @@ export default function AuthProvider({ children }){
             throw new Error(result.error || "Login failed");
         }
 
-        setUser({ email });
+        setUser({ email: result.email, isAdmin: result.isAdmin });
         return result;
     }
 
@@ -52,5 +52,7 @@ export default function AuthProvider({ children }){
 }
 
 export function useAuth() {
-    return useContext(AuthContext);
+    const context = useContext(AuthContext);
+
+    return context; 
 }
