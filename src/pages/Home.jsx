@@ -32,7 +32,7 @@ export default function Home() {
         <div className="page">
             <div className="home-hero">
                 <h1 className="home-title"> Welcome to <span className="brand-font">Tidyr</span></h1>
-                <p> Finding a reliable cleaner shouldn't be a chore of its own. Tidyr connects you with trusted, experienced cleaning professionals in your area — so you can book a spotless home or office in minutes, not hours. Browse verified profiles, compare rates, and schedule a cleaning that fits your life, all in one place</p><br></br>
+                <p> Finding a reliable cleaner shouldn't be a chore of its own. Tidyr connects you with trusted, experienced cleaning professionals in your area, so you can book a spotless home or office in minutes, not hours. Browse verified profiles, compare rates, and schedule a cleaning that fits your life, all in one place</p><br></br>
                 <p className="home-subtitle"><span className="brand-font">Tidyr</span>, cleaning made easy.</p>
             </div>
             <div className="container">
